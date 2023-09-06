@@ -4,12 +4,15 @@ import './index.css';
 import App from './App';
 import { BrowserRouter } from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
+import { DataContextHandler } from './datacontext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
+    <DataContextHandler>
     <App />
+    </DataContextHandler>
     </BrowserRouter>
   </React.StrictMode>
 );

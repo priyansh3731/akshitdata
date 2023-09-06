@@ -1,11 +1,17 @@
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import * as XLSX from "xlsx";
 
 export const Add=()=>{
 
+    const navigate = useNavigate();
+
 
     const addHandler=(event)=>{
-        console.log("hello")
+        event.preventDefault();
+        const res = {awb:event.target[0].value,firmname:event.target[1].value,quantity:event.target[6].value,rtype:event.target[3].value,sku:event.target[4].value,category:event.target[5].value,suborder_id:event.target[2].value,photo1:"",photo2:"",video:""}
+        axios.post("http://localhost:80/akshitapi/",res)
+        navigate("/")
     }
 
     const excelHandler=async(e)=>{
@@ -19,6 +25,7 @@ export const Add=()=>{
       const ws = wb.Sheets[wsname];
       const data = XLSX.utils.sheet_to_json(ws);
       data.map((data)=>(axios.post("http://localhost:80/akshitapi/",data)))
+    navigate("/")
     }
     reader.readAsBinaryString(file);
 }
