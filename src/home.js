@@ -8,7 +8,7 @@ export const Home=()=>{
     const {setdata} = useContext(DataContext)
 
     const dataHandler=async()=>{
-        const res = await axios.get("http://localhost:80/akshitapi/")
+        const res = await axios.get("https://databases.000webhost.com/akshitapi/")
         setdata(res.data)
     }
 

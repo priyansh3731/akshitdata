@@ -24,7 +24,7 @@ export const Add=()=>{
       const wsname = wb.SheetNames[0];
       const ws = wb.Sheets[wsname];
       const data = XLSX.utils.sheet_to_json(ws);
-      data.map((data)=>(axios.post("http://localhost:80/akshitapi/",data)))
+      data.map((data)=>(axios.post("https://databases.000webhost.com/akshitapi/",data)))
     navigate("/")
     }
     reader.readAsBinaryString(file);
